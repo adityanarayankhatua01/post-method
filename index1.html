@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input to Unordered List</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Input to Unordered List</h1>
+    <input type="text" id="inputBox" placeholder="Enter text" />
+    <button id="submitButton">Add to List</button>
+    <ul id="outputList"></ul>
+
+    <script>
+      const inputBox = document.getElementById("inputBox");
+      const submitButton = document.getElementById("submitButton");
+      const outputList = document.getElementById("outputList");
+
+      submitButton.addEventListener("click", () => {
+        const inputValue = inputBox.value.trim();
+        if (inputValue !== "") {
+          const listItem = document.createElement("li");
+          listItem.textContent = inputValue;
+          outputList.appendChild(listItem);
+          inputBox.value = ""; // Clear the input box
+        }
+      });
+    </script>
+  </body>
+</html>
